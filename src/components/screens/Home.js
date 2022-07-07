@@ -31,16 +31,12 @@ const Home = (props) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scroll}>
-                {images && images.map((image) => {
-                    // console.log("url", image.urls.full)
-                    // console.log("desc", image.description)
-                    // console.log("id", image.id)
-                    // console.log("author", image.user.name)
+                {images && images.map(({urls,description, id, user}) => {
                     return <Post 
-                    url={image.urls.full} 
-                    desc = {image.description}
-                    key={image.id}
-                    author={image.user.name}
+                    url={urls.full} 
+                    desc = {description}
+                    key={id}
+                    author={user.name}
                     handleNavigation={() => handleNavigation(image)}
                     />
                 })}

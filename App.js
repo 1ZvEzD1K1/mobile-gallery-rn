@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import MainNavigator from './src/components/MainNavigator';
+import MainNavigator from './src/navigation/MainNavigator';
 import store from './src/redux/store';
 
 const App = () => {

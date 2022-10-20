@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { ImagesActionCreators } from '../../redux/images/action-images'
-import Error from '../Error'
-import Loader from '../Loader'
-import Post from '../Post'
+import Error from '../../components/Error'
+import Loader from '../../components/Loader'
+import Post from '../../components/Post'
 
 const Home = (props) => {
     const dispatch = useDispatch()
@@ -14,7 +14,6 @@ const Home = (props) => {
     }, [])
 
     const {images, error, isLoading} = useSelector(state => state.imagesReducer)
-    //console.log("img", images)
 
     const handleNavigation = (img) => {
         props.navigation.navigate("Images", {img: img})
@@ -32,10 +31,6 @@ const Home = (props) => {
         <View style={styles.container}>
             <ScrollView style={styles.scroll}>
                 {images && images.map((image) => {
-                    // console.log("url", image.urls.full)
-                    // console.log("desc", image.description)
-                    // console.log("id", image.id)
-                    // console.log("author", image.user.name)
                     return <Post 
                     url={image.urls.full} 
                     desc = {image.description}
